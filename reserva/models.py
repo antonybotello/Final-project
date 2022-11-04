@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from habitacion.models import Habitacion
-from promocion.models import Promocion
 from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
@@ -35,7 +34,6 @@ class Reserva(models.Model):
 class DetalleReserva(models.Model):
     Habitacion=models.ForeignKey(Habitacion, on_delete=models.CASCADE, verbose_name="Habitacion")
     Reserva=models.ForeignKey(Reserva, on_delete=models.CASCADE, verbose_name="Reserva")
-    Promocion=models.ForeignKey(Promocion, on_delete=models.CASCADE, verbose_name="Promocion",null=True, blank=True)
     def __str__(self):
         return "DetalleReserva %s"%(self.Reserva)
     
